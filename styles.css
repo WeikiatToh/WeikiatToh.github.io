@@ -1,6 +1,7 @@
 /* General styles */
 body {
     font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #666666, #e0e0e0);
     margin: 0;
     padding: 0;
     text-align: center;

@@ -1,0 +1,17 @@
+my-repo/
+├── index.html          <-- Main entry point (required for GitHub Pages)
+├── styles.css          <-- Keep CSS in the root or move it to a folder like `website/`
+├── website/            <-- Folder to store additional code
+│   ├── manchester.html
+│   ├── ucl.html
+│   ├── history.html
+│   ├── biodiversity.html
+│   ├── industrial.html
+│   ├── esg.html
+│   ├── images/         <-- Images can go here
+│       ├── manchester.jpg
+│       ├── ucl.jpg
+│       ├── history.jpg
+│       ├── biodiversity.jpg
+│       ├── industrial.jpg
+│       ├── esg.jpg

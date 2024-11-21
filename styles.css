@@ -1,0 +1,47 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 20px;
+    color: #333;
+}
+
+/* Grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Spacing between grid items */
+    padding: 20px;
+    justify-items: center; /* Center each grid item */
+}
+
+/* Grid items */
+.grid-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover; /* Ensures all images are cropped to fit the box */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow effect */
+    transition: transform 0.2s;
+}
+
+.grid-item img:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.grid-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.grid-item a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Keep text color */
+}

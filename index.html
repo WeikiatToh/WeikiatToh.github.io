@@ -1,20 +1,109 @@
-my-repo/
-├── index.html          <-- Main entry point for your website
-├── styles.css          <-- Optional: Keep this here or move it into a folder
-├── website/            <-- Folder for additional code and files
-│   ├── manchester.html
-│   ├── ucl.html
-│   ├── history.html
-│   ├── biodiversity.html
-│   ├── industrial.html
-│   ├── esg.html
-│   ├── images/         <-- Folder for images
-│       ├── manchester.jpg
-│       ├── ucl.jpg
-│       ├── history.jpg
-│       ├── biodiversity.jpg
-│       ├── industrial.jpg
-│       ├── esg.jpg
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESGVision</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 20px;
+            justify-items: center;
+            padding: 20px;
+        }
+
+        .grid-item {
+            text-align: center;
+        }
+
+        .grid-item img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .grid-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .grid-item p {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .grid-item a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <h1>ESGVision</h1>
+    <div class="grid">
+        <!-- Manchester Notes -->
+        <div class="grid-item">
+            <a href="website/manchester.html">
+                <img src="website/images/manchester.jpg" alt="Manchester Notes">
+                <p>Manchester Notes</p>
+            </a>
+        </div>
+        <!-- UCL Notes -->
+        <div class="grid-item">
+            <a href="website/ucl.html">
+                <img src="website/images/ucl.jpg" alt="UCL Notes">
+                <p>UCL Notes</p>
+            </a>
+        </div>
+        <!-- History of Earth -->
+        <div class="grid-item">
+            <a href="website/history.html">
+                <img src="website/images/history.jpg" alt="History of Earth">
+                <p>History of Earth</p>
+            </a>
+        </div>
+        <!-- Biodiversity -->
+        <div class="grid-item">
+            <a href="website/biodiversity.html">
+                <img src="website/images/biodiversity.jpg" alt="Biodiversity">
+                <p>Biodiversity</p>
+            </a>
+        </div>
+        <!-- Industrial Processes -->
+        <div class="grid-item">
+            <a href="website/industrial.html">
+                <img src="website/images/industrial.jpg" alt="Industrial Processes">
+                <p>Industrial Processes</p>
+            </a>
+        </div>
+        <!-- ESG Framework -->
+        <div class="grid-item">
+            <a href="website/esg.html">
+                <img src="website/images/esg.jpg" alt="ESG Framework">
+                <p>ESG Framework</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+
 
 <div class="grid-item">
     <a href="website/manchester.html">

@@ -61,7 +61,6 @@ h1 {
     width: 100%; /* Ensures the image fits the container */
     height: 100%; /* Ensures the image spans the height */
     object-fit: cover; /* Crops the image to fit */
-    border-radius: 50%; /* Circular image */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Shadow for aesthetics */
 }
 

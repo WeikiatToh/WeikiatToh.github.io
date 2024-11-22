@@ -13,22 +13,42 @@ h1 {
     color: #333;
 }
 
-
-
 /* Grid container */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    grid-template-rows: auto auto;
+    grid-template-columns: 20% repeat(3, 1fr); /* 1 column for the profile and 3 columns for the rest */
+    grid-template-rows: auto auto; /* Two rows */
     gap: 10px; /* Spacing between grid items */
     padding: 20px;
-    justify-items: center; /* Center each grid item */
-    min-height: 200vh;
-    margin: 0;
-    padding: 0;
+    min-height: 200vh; /* Adjust the height of the grid container */
+    margin: 0 auto;
+    align-items: start; /* Align items to the start of the grid rows */
+}
+
+/* Profile section */
+.profile {
+    grid-row: 1 / span 2; /* Span across all rows */
+    grid-column: 1; /* Place in the first column */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile img {
+    width: 100%; /* Fills the profile column */
+    height: 100%; /* Fills the entire height of the container */
+    object-fit: cover; /* Ensures the image fits neatly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for better aesthetics */
 }
 
 /* Grid items */
+.grid-item {
+    grid-column: span 1; /* Occupies one grid column */
+    text-align: center;
+}
+
 .grid-item img {
     width: 200px;
     height: 200px;
@@ -46,31 +66,4 @@ h1 {
     font-size: 16px;
     font-weight: bold;
     color: #333;
-}
-
-.profile {
-    position: absolute; /* Position it relative to the page */
-    top: 0;
-    left: 0;
-    width: 20%; /* Takes up 20% of the page width */
-    height: 100vh; /* Spans the entire height of the viewport */
-    overflow: hidden; /* Ensures no overflow beyond the container */
-}
-
-.profile img {
-    width: 100%; /* Ensures the image fits the container */
-    height: 100%; /* Ensures the image spans the height */
-    object-fit: cover; /* Crops the image to fit */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Shadow for aesthetics */
-}
-
-.profile p {
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-}
-.grid-item a {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Keep text color */
 }

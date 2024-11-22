@@ -13,10 +13,7 @@ h1 {
     color: #333;
 }
 
-.profile {
-    grid-row: span 2; /* Span this column across both rows */
-    text-align: center; /* Center content inside this column */
-}
+
 
 /* Grid container */
 .grid-container {
@@ -52,6 +49,25 @@ h1 {
     color: #333;
 }
 
+.profile {
+    grid-row: span 2; /* Span this column across both rows */
+    text-align: center; /* Center content inside this column */
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Ensures the image fits neatly */
+    border-radius: 50%; /* Circular image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Shadow for aesthetics */
+}
+
+.profile p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
 .grid-item a {
     text-decoration: none; /* Remove underline */
     color: inherit; /* Keep text color */

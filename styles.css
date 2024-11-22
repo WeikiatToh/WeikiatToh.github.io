@@ -23,7 +23,7 @@ h1 {
     gap: 10px; /* Spacing between grid items */
     padding: 20px;
     justify-items: center; /* Center each grid item */
-    min-height: 100vh;
+    min-height: 200vh;
     margin: 0;
     padding: 0;
 }

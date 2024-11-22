@@ -1,13 +1,13 @@
 /* General styles */
 head {
 font-family: Arial, sans-serif;
-    font-size: 20;
+    font-size: 20px;
     text-align: center;
 }
 
 body {
     font-family: Arial, sans-serif;
-    font-size: 14;
+    font-size: 14px;
     background: linear-gradient(to bottom, #f7f7f7, #ffffff);
     margin: 0;
     padding: 0;

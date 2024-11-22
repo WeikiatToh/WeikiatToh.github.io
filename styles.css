@@ -20,6 +20,9 @@ h1 {
     gap: 20px; /* Spacing between grid items */
     padding: 20px;
     justify-items: center; /* Center each grid item */
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 /* Grid items */

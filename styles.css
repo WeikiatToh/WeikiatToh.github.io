@@ -1,7 +1,7 @@
 /* General styles */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #666666, #e0e0e0);
+    background: linear-gradient(to bottom, #f7f7f7, #e0e0e0);
     margin: 0;
     padding: 0;
     height: 100%;
@@ -17,7 +17,7 @@ h1 {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 20px; /* Spacing between grid items */
+    gap: 10px; /* Spacing between grid items */
     padding: 20px;
     justify-items: center; /* Center each grid item */
     min-height: 100vh;

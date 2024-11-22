@@ -50,14 +50,18 @@ h1 {
 }
 
 .profile {
-    grid-row: span 2; /* Span this column across both rows */
-    text-align: center; /* Center content inside this column */
+    position: absolute; /* Position it relative to the page */
+    top: 0;
+    left: 0;
+    width: 20%; /* Takes up 20% of the page width */
+    height: 100vh; /* Spans the entire height of the viewport */
+    overflow: hidden; /* Ensures no overflow beyond the container */
 }
 
 .profile img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover; /* Ensures the image fits neatly */
+    width: 100%; /* Ensures the image fits the container */
+    height: 100%; /* Ensures the image spans the height */
+    object-fit: cover; /* Crops the image to fit */
     border-radius: 50%; /* Circular image */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Shadow for aesthetics */
 }

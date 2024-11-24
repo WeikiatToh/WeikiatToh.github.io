@@ -1,24 +1,78 @@
-/* Timeline Container */
+/* Timeline Table Container */
+.timeline-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+/* General Table Styles */
+.timeline-table table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+/* Row Background Colors */
+.timeline-table .row-light {
+    background-color: white;
+}
+.timeline-table .row-dark {
+    background-color: #f7f7f7; /* Light grey */
+}
+
+/* Table Cell Styling */
+.timeline-table td {
+    vertical-align: top;
+    padding: 15px;
+    border-right: 1px solid #ddd; /* Vertical column separators */
+    text-align: center;
+}
+
+/* Remove Right Border for Last Column */
+.timeline-table td:last-child {
+    border-right: none;
+}
+
+/* Image Styling */
+.timeline-table img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Alignment for Columns */
+.timeline-table td:nth-child(2) {
+    text-align: left; /* Description aligned to the left */
+}
+
+.timeline-table td:nth-child(3) {
+    text-align: left; /* Outcome aligned to the left */
+}
+
+/* Overall Body Styling */
 body {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     background-color: #f7f7f7;
     padding: 20px;
 }
 
-/* Header Style (Timeline Sections) */
+/* Header Style (Timeline Title) */
 h1 {
     background-color: #28a745; /* Green for headers */
     color: white;
     padding: 10px;
     border-radius: 5px;
     margin: 20px 0 10px;
-    width: 100%;
+    width: 80%;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Subheader Style (Timeline Items) */
+/* Subheader Style (Section Titles) */
 h2 {
     background-color: #17a2b8; /* Blue for subheaders */
     color: white;
@@ -29,7 +83,7 @@ h2 {
     text-align: center;
 }
 
-/* Paragraph Style */
+/* Paragraph Style (Details and Descriptions) */
 p {
     background-color: #ffffff;
     border-left: 4px solid #28a745;
@@ -38,6 +92,7 @@ p {
     margin-left: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: auto;
+    text-align: left;
 }
 
 /* Optional: Add Lines Between Timeline Items */
@@ -48,4 +103,24 @@ h2::before {
     height: 30px;
     background-color: #ccc;
     margin: 0 auto;
+}
+
+/* Responsive Design: Adjust Table for Smaller Screens */
+@media (max-width: 768px) {
+    .timeline-table {
+        width: 95%;
+    }
+    .timeline-table td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
 }

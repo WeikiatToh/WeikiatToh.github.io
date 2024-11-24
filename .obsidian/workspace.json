@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "website/_pages/history_of_earth.md",
+                "file": "history_of_earth.md",
                 "mode": "source",
                 "source": false
               },
@@ -178,11 +178,11 @@
       "yet-another-obsidian-synchronizer:YAOS": false
     }
   },
-  "active": "a48c6c65cea23b35",
+  "active": "0d0313004430d0f1",
   "lastOpenFiles": [
     "website/_pages",
     "README.md",
-    "website/_pages/history_of_earth.md",
+    "history_of_earth.md",
     "Untitled.canvas",
     "2024-11-24.md",
     "website/images/UoM.png",

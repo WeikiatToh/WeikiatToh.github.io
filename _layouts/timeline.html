@@ -17,24 +17,33 @@
     </header>
     <main class="timeline-table">
         <table>
-            <!-- Split the page content into sections by "###" -->
-            {% assign sections = page.content | split: '### ' %}
-            {% for section in sections %}
-                {% if section contains "- **Description:**" %}
-                <tr class="{% cycle 'row-light', 'row-dark' %}">
-                    <td>
-                        <!-- Display the time (### headers) -->
-                        <strong>{{ section | split: '\n' | first | strip }}</strong>
-                    </td>
-                    <td>
-                        <!-- Extract and display the description -->
-                        {{ section | split: '- **Description:** ' | last | split: '- **Major Outcome:**' | first | strip }}
-                    </td>
-                    <td>
-                        <!-- Extract and display the major outcome -->
-                        {{ section | split: '- **Major Outcome:** ' | last | strip }}
-                    </td>
-                </tr>
+            {% assign lines = page.content | split: '\n' %}
+            {% for line in lines %}
+                {% if line startswith "#" %}
+                    <!-- Create a new row for each # -->
+                    <tr class="{% cycle 'row-light', 'row-dark' %}">
+                        <td><strong>{{ line | remove: "#" | strip }}</strong></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {% elsif line startswith "##" %}
+                    <!-- Update Column 2 for ## -->
+                    <tr>
+                        <td></td>
+                        <td>{{ line | remove: "##" | strip }}</td>
+                        <td></td>
+                    </tr>
+                {% elsif line startswith "###" %}
+                    <!-- Add bullet points to Column 3 for ### -->
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <ul>
+                                <li>{{ line | remove: "###" | strip }}</li>
+                            </ul>
+                        </td>
+                    </tr>
                 {% endif %}
             {% endfor %}
         </table>

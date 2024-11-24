@@ -24,11 +24,6 @@
                     <td>
                         <!-- Extract and Display Title -->
                         <strong>{{ section | split: '\n' | first | strip }}</strong>
-                        <br>
-                        <!-- Display Image if Available -->
-                        {% if section contains "- **Image:**" %}
-                        <img src="{{ section | split: '- **Image:** ' | last | strip }}" alt="Timeline Image" />
-                        {% endif %}
                     </td>
                     <td>
                         <!-- Extract and Display Description -->
@@ -36,7 +31,7 @@
                     </td>
                     <td>
                         <!-- Extract and Display Major Outcome -->
-                        {{ section | split: '- **Major Outcome:** ' | last | split: '- **Image:**' | first | strip }}
+                        {{ section | split: '- **Major Outcome:** ' | last | strip }}
                     </td>
                 </tr>
                 {% endif %}

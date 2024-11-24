@@ -17,20 +17,22 @@
     </header>
     <main class="timeline-table">
         <table>
+            <!-- Split the page content into sections by "###" -->
             {% assign sections = page.content | split: '### ' %}
             {% for section in sections %}
+                <!-- Check if the section contains "- **Description:**" -->
                 {% if section contains "- **Description:**" %}
                 <tr class="{% cycle 'row-light', 'row-dark' %}">
                     <td>
-                        <!-- Extract and Display Title -->
+                        <!-- Extract and display the title (first line of the section) -->
                         <strong>{{ section | split: '\n' | first | strip }}</strong>
                     </td>
                     <td>
-                        <!-- Extract and Display Description -->
+                        <!-- Extract and display the description -->
                         {{ section | split: '- **Description:** ' | last | split: '- **Major Outcome:**' | first | strip }}
                     </td>
                     <td>
-                        <!-- Extract and Display Major Outcome -->
+                        <!-- Extract and display the major outcome -->
                         {{ section | split: '- **Major Outcome:** ' | last | strip }}
                     </td>
                 </tr>

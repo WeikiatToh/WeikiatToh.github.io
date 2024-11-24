@@ -29,7 +29,7 @@
     vertical-align: top;
     padding: 20px; /* Increased padding for cleaner spacing */
     border-right: 1px solid #ddd; /* Vertical column separators */
-    text-align: center;
+    text-align: left; /* Align content to the left for consistency */
     color: #333; /* Ensure text color is dark and readable */
     font-size: 1rem; /* Default font size for readability */
     word-wrap: break-word; /* Prevent text overflow */
@@ -41,13 +41,15 @@
     border-right: none;
 }
 
-/* Text Alignment for Columns */
+/* Column Styling */
+.timeline-table td:nth-child(1) {
+    font-weight: bold; /* Emphasize time periods */
+    text-align: center; /* Center align the timeline time */
+}
 .timeline-table td:nth-child(2) {
-    text-align: left; /* Description aligned to the left */
     font-weight: 400; /* Regular weight for descriptions */
 }
 .timeline-table td:nth-child(3) {
-    text-align: left; /* Outcome aligned to the left */
     font-style: italic; /* Italics for major outcomes */
 }
 

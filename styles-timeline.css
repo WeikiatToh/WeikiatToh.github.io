@@ -1,0 +1,20 @@
+/* Timeline-specific styles */
+
+/* Green banner for # headers */
+h1 {
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Blue banner for ## subheaders */
+h2 {
+    background-color: #17a2b8; /* Blue */
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}

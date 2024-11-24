@@ -3,6 +3,7 @@
     width: 80%;
     margin: 0 auto;
     border-collapse: collapse;
+    background-color: #f7f7f7;
 }
 
 /* General Table Styles */
@@ -26,6 +27,10 @@
     padding: 15px;
     border-right: 1px solid #ddd; /* Vertical column separators */
     text-align: center;
+    color: #333; /* Ensure text color is dark and readable */
+    font-size: 1rem; /* Default font size for readability */
+    word-wrap: break-word; /* Prevent text overflow */
+    line-height: 1.5; /* Improve readability */
 }
 
 /* Remove Right Border for Last Column */
@@ -42,6 +47,11 @@
     text-align: left; /* Outcome aligned to the left */
 }
 
+/* Prevent Misaligned Content and Padding Issues */
+.timeline-table td {
+    box-sizing: border-box; /* Ensures padding and borders do not misconfigure layout */
+}
+
 /* Overall Body Styling */
 body {
     display: flex;
@@ -49,6 +59,8 @@ body {
     align-items: center;
     background-color: #f7f7f7;
     padding: 20px;
+    color: #333; /* Default body text color for contrast */
+    font-family: Arial, sans-serif; /* Default font */
 }
 
 /* Header Style (Timeline Title) */
@@ -84,6 +96,9 @@ p {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: auto;
     text-align: left;
+    line-height: 1.5; /* Improve paragraph readability */
+    font-size: 1rem;
+    color: #333;
 }
 
 /* Optional: Add Lines Between Timeline Items */
@@ -111,4 +126,7 @@ h2::before {
     h2 {
         font-size: 1.2rem;
     }
- 
+    p {
+        font-size: 0.9rem;
+    }
+}

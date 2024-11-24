@@ -4,4 +4,4 @@ permalink: pretty
 collections:
   pages:
     output: true
-baseurl: "/WeikiatToh.github.io"
+baseurl: ""

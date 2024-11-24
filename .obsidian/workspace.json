@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "history_of_earth.md",
+                "file": "website/_pages/history_of_earth.md",
                 "mode": "source",
                 "source": false
               },
@@ -182,7 +182,7 @@
   "lastOpenFiles": [
     "website/_pages",
     "README.md",
-    "history_of_earth.md",
+    "website/_pages/history_of_earth.md",
     "Untitled.canvas",
     "2024-11-24.md",
     "website/images/UoM.png",

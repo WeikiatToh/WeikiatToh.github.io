@@ -1,20 +1,51 @@
-/* Timeline-specific styles */
+/* Timeline Container */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #f7f7f7;
+    padding: 20px;
+}
 
-/* Green banner for # headers */
+/* Header Style (Timeline Sections) */
 h1 {
-    background-color: #28a745; /* Green */
+    background-color: #28a745; /* Green for headers */
     color: white;
     padding: 10px;
     border-radius: 5px;
+    margin: 20px 0 10px;
+    width: 100%;
     text-align: center;
 }
 
-/* Blue banner for ## subheaders */
+/* Subheader Style (Timeline Items) */
 h2 {
-    background-color: #17a2b8; /* Blue */
+    background-color: #17a2b8; /* Blue for subheaders */
     color: white;
     padding: 8px;
     border-radius: 5px;
-    margin-top: 20px;
+    margin: 10px 0;
+    width: auto;
     text-align: center;
+}
+
+/* Paragraph Style */
+p {
+    background-color: #ffffff;
+    border-left: 4px solid #28a745;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: auto;
+}
+
+/* Optional: Add Lines Between Timeline Items */
+h2::before {
+    content: '';
+    display: block;
+    width: 2px;
+    height: 30px;
+    background-color: #ccc;
+    margin: 0 auto;
 }

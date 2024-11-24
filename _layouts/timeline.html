@@ -7,9 +7,9 @@
     <!-- Main Styles -->
     <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
     <!-- Conditional Timeline Styles -->
-{% if page.permalink contains "history-of-earth" %}
-<link rel="stylesheet" href="{{ site.baseurl }}/styles/styles-timeline.css">
-{% endif %}
+    {% if page.permalink contains "history-of-earth" %}
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles/styles-timeline.css">
+    {% endif %}
 </head>
 <body>
     <header>
@@ -18,25 +18,27 @@
     <main class="timeline-table">
         <table>
             <!-- Split the page content into sections by "###" -->
-            {% assign sections = page.content | split: '### ' %}
+            {% assign sections = page.content | newline_to_br | split: '### ' %}
             {% for section in sections %}
-                <!-- Check if the section contains "- **Description:**" -->
-                {% if section contains "- **Description:**" %}
+                {% assign lines = section | newline_to_br | split: '<br />' %}
+                {% assign title = lines[0] %}
+                {% assign description = section | split: '- **Description:** ' | last | split: '- **Major Outcome:**' | first %}
+                {% assign major_outcome = section | split: '- **Major Outcome:** ' | last %}
+
                 <tr class="{% cycle 'row-light', 'row-dark' %}">
                     <td>
                         <!-- Extract and display the title (first line of the section) -->
-                        <strong>{{ section | split: '\n' | first | strip }}</strong>
+                        <strong>{{ title | strip }}</strong>
                     </td>
                     <td>
                         <!-- Extract and display the description -->
-                        {{ section | split: '- **Description:** ' | last | split: '- **Major Outcome:**' | first | strip }}
+                        {{ description | strip }}
                     </td>
                     <td>
                         <!-- Extract and display the major outcome -->
-                        {{ section | split: '- **Major Outcome:** ' | last | strip }}
+                        {{ major_outcome | strip }}
                     </td>
                 </tr>
-                {% endif %}
             {% endfor %}
         </table>
     </main>

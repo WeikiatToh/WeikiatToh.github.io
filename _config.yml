@@ -1,3 +1,6 @@
 markdown: kramdown
-theme: minima # Optional Jekyll theme
+theme: minima
 permalink: pretty
+collections:
+  pages:
+    output: true

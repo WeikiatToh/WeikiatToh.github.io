@@ -4,6 +4,9 @@
     margin: 0 auto;
     border-collapse: collapse;
     background-color: #f7f7f7;
+    border-radius: 8px; /* Rounded corners for the table */
+    overflow: hidden; /* Prevent content overflow on rounded edges */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for emphasis */
 }
 
 /* General Table Styles */
@@ -18,13 +21,13 @@
     background-color: white;
 }
 .timeline-table .row-dark {
-    background-color: #f7f7f7; /* Light grey */
+    background-color: #f9f9f9; /* Slightly darker light grey for contrast */
 }
 
 /* Table Cell Styling */
 .timeline-table td {
     vertical-align: top;
-    padding: 15px;
+    padding: 20px; /* Increased padding for cleaner spacing */
     border-right: 1px solid #ddd; /* Vertical column separators */
     text-align: center;
     color: #333; /* Ensure text color is dark and readable */
@@ -41,10 +44,11 @@
 /* Text Alignment for Columns */
 .timeline-table td:nth-child(2) {
     text-align: left; /* Description aligned to the left */
+    font-weight: 400; /* Regular weight for descriptions */
 }
-
 .timeline-table td:nth-child(3) {
     text-align: left; /* Outcome aligned to the left */
+    font-style: italic; /* Italics for major outcomes */
 }
 
 /* Prevent Misaligned Content and Padding Issues */
@@ -67,48 +71,12 @@ body {
 h1 {
     background-color: #28a745; /* Green for headers */
     color: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 20px 0 10px;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0 20px;
     width: 80%;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Subheader Style (Section Titles) */
-h2 {
-    background-color: #17a2b8; /* Blue for subheaders */
-    color: white;
-    padding: 8px;
-    border-radius: 5px;
-    margin: 10px 0;
-    width: auto;
-    text-align: center;
-}
-
-/* Paragraph Style (Details and Descriptions) */
-p {
-    background-color: #ffffff;
-    border-left: 4px solid #28a745;
-    padding: 10px;
-    border-radius: 5px;
-    margin-left: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: auto;
-    text-align: left;
-    line-height: 1.5; /* Improve paragraph readability */
-    font-size: 1rem;
-    color: #333;
-}
-
-/* Optional: Add Lines Between Timeline Items */
-h2::before {
-    content: '';
-    display: block;
-    width: 2px;
-    height: 30px;
-    background-color: #ccc;
-    margin: 0 auto;
 }
 
 /* Responsive Design: Adjust Table for Smaller Screens */
@@ -118,13 +86,10 @@ h2::before {
     }
     .timeline-table td {
         font-size: 0.9rem;
-        padding: 10px;
+        padding: 15px;
     }
     h1 {
         font-size: 1.5rem;
-    }
-    h2 {
-        font-size: 1.2rem;
     }
     p {
         font-size: 0.9rem;

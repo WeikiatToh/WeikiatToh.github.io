@@ -178,11 +178,12 @@
       "yet-another-obsidian-synchronizer:YAOS": false
     }
   },
-  "active": "d2fce5571ee12683",
+  "active": "0d0313004430d0f1",
   "lastOpenFiles": [
-    "_layout/Placeholder3.md",
+    "_layouts/default.html",
+    "_layouts/Placeholder3.md",
     "_pages/history_of_earth.md",
-    "_layout",
+    "_layouts",
     "README.md",
     "_pages/Placeholder2",
     "_pages",

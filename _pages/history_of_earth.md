@@ -2,20 +2,34 @@
 layout: default
 title: History of the Earth
 permalink: /history-of-earth/
-cssclass: timeline
 ---
 
-# History of the Earth
+# History of the Earth Timeline
 
-- **Hadean Eon**
-- *4.6 Billion Years Ago*: The Earth forms from swirling gas and dust, creating a rocky planet with a hot core.
+## 4.6 Billion Years Ago
+**Earth Forms**  
+The Earth formed as gravity pulled together swirling gas and dust, creating a rocky planet with a hot core.
 
-- **Archean Eon**
-- *3.8 Billion Years Ago*: The first life appears. Microorganisms thrive in hydrothermal vents or shallow waters.
+---
 
-- **Proterozoic Eon**
-- *700 Million Years Ago*: Multicellular life evolves, leading to more complex organisms.
+## 3.8 Billion Years Ago
+**First Life Appears**  
+Microorganisms emerged, forming the earliest known life on Earth in hydrothermal vents or shallow waters.
 
-- **Phanerozoic Eon**
-- *66 Million Years Ago*: Dinosaurs go extinct due to a mass extinction event caused by an asteroid impact.
-- *200,000 Years Ago*: Modern humans appear and begin their journey to dominate the planet.
+---
+
+## 700 Million Years Ago
+**Multicellular Life Evolves**  
+Multicellular organisms began to evolve, leading to the development of more complex life forms.
+
+---
+
+## 66 Million Years Ago
+**Dinosaurs Go Extinct**  
+An asteroid impact caused mass extinction, paving the way for mammals to dominate.
+
+---
+
+## 200,000 Years Ago
+**Modern Humans Appear**  
+Homo sapiens emerged, marking the beginning of the species that would dominate the planet.

@@ -33,15 +33,6 @@
     border-right: none;
 }
 
-/* Image Styling */
-.timeline-table img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 /* Text Alignment for Columns */
 .timeline-table td:nth-child(2) {
     text-align: left; /* Description aligned to the left */
@@ -120,7 +111,4 @@ h2::before {
     h2 {
         font-size: 1.2rem;
     }
-    p {
-        font-size: 1rem;
-    }
-}
+ 

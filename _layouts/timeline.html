@@ -18,27 +18,24 @@
     <main class="timeline-table">
         <table>
             <!-- Split the page content into sections by "###" -->
-            {% assign sections = page.content | newline_to_br | split: '### ' %}
+            {% assign sections = page.content | split: '### ' %}
             {% for section in sections %}
-                {% assign lines = section | newline_to_br | split: '<br />' %}
-                {% assign title = lines[0] %}
-                {% assign description = section | split: '- **Description:** ' | last | split: '- **Major Outcome:**' | first %}
-                {% assign major_outcome = section | split: '- **Major Outcome:** ' | last %}
-
+                {% if section contains "- **Description:**" %}
                 <tr class="{% cycle 'row-light', 'row-dark' %}">
                     <td>
-                        <!-- Extract and display the title (first line of the section) -->
-                        <strong>{{ title | strip }}</strong>
+                        <!-- Display the time (### headers) -->
+                        <strong>{{ section | split: '\n' | first | strip }}</strong>
                     </td>
                     <td>
                         <!-- Extract and display the description -->
-                        {{ description | strip }}
+                        {{ section | split: '- **Description:** ' | last | split: '- **Major Outcome:**' | first | strip }}
                     </td>
                     <td>
                         <!-- Extract and display the major outcome -->
-                        {{ major_outcome | strip }}
+                        {{ section | split: '- **Major Outcome:** ' | last | strip }}
                     </td>
                 </tr>
+                {% endif %}
             {% endfor %}
         </table>
     </main>

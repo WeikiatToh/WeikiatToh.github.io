@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+</head>
+<body>
+    <header>
+        <h1>{{ page.title }}</h1>
+    </header>
+    <main class="timeline-table">
+        <table>
+            {% assign sections = page.content | split: '### ' %}
+            {% for section in sections %}
+                {% if section contains "- **Description:**" %}
+                <tr class="{% cycle 'row-light', 'row-dark' %}">
+                    <td>
+                        <strong>{{ section | split: '\n' | first }}</strong>
+                        <br>
+                        {% if section contains "- **Image:**" %}
+                        <img src="{{ section | split: '- **Image:** ' | last | strip }}" alt="Timeline Image" />
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ section | split: '- **Description:** ' | last | split: '- **Major Outcome:**' | first | strip }}
+                    </td>
+                    <td>
+                        {{ section | split: '- **Major Outcome:** ' | last | split: '- **Image:**' | first | strip }}
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </main>
+</body>
+</html>

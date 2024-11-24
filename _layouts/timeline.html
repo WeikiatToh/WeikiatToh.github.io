@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="{{ site.baseurl }}/styles.css"> <!-- Main Styles -->
-   {% if page.permalink == "/history-of-earth/" %}
-    <link rel="stylesheet" href="{{ site.baseurl }}/styles/styles_timeline.css"> <!-- Timeline Styles -->
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
+    <!-- Conditional Timeline Styles -->
+    {% if page.permalink == "/history-of-earth/" %}
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles/styles_timeline.css">
     {% endif %}
 </head>
 <body>
@@ -20,16 +22,20 @@
                 {% if section contains "- **Description:**" %}
                 <tr class="{% cycle 'row-light', 'row-dark' %}">
                     <td>
-                        <strong>{{ section | split: '\n' | first }}</strong>
+                        <!-- Extract and Display Title -->
+                        <strong>{{ section | split: '\n' | first | strip }}</strong>
                         <br>
+                        <!-- Display Image if Available -->
                         {% if section contains "- **Image:**" %}
                         <img src="{{ section | split: '- **Image:** ' | last | strip }}" alt="Timeline Image" />
                         {% endif %}
                     </td>
                     <td>
+                        <!-- Extract and Display Description -->
                         {{ section | split: '- **Description:** ' | last | split: '- **Major Outcome:**' | first | strip }}
                     </td>
                     <td>
+                        <!-- Extract and Display Major Outcome -->
                         {{ section | split: '- **Major Outcome:** ' | last | split: '- **Image:**' | first | strip }}
                     </td>
                 </tr>

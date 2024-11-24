@@ -2,7 +2,7 @@
 layout: default
 title: History of the Earth
 permalink: /history-of-earth/
-cssclass: timeline body-2 line-3
+cssclass: timeline
 ---
 
 # History of the Earth

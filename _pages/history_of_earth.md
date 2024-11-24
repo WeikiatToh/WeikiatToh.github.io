@@ -8,9 +8,3 @@ permalink: /history-of-earth/
 ## 4.6 Billion Years Ago
 **Earth Forms**  
 The Earth formed as gravity pulled together swirling gas and dust, creating a rocky planet with a hot core.
-
----
-
-## 3.8 Billion Years Ago
-**First Life Appears**  
-Microorganisms emerged, forming the earliest known life on Earth in hydrothermal vents or shallow waters.

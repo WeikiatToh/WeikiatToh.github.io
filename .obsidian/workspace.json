@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "website/History/History of the Earth.md",
+                "file": "website/History/history_of_earth.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "History of the Earth"
+              "title": "history_of_earth"
             }
           }
         ],
@@ -178,11 +178,11 @@
       "yet-another-obsidian-synchronizer:YAOS": false
     }
   },
-  "active": "0d0313004430d0f1",
+  "active": "a48c6c65cea23b35",
   "lastOpenFiles": [
     "website/History",
     "README.md",
-    "website/History/History of the Earth.md",
+    "website/History/history_of_earth.md",
     "Untitled.canvas",
     "2024-11-24.md",
     "website/images/UoM.png",

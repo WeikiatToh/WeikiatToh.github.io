@@ -20,7 +20,6 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Split content into rows by "---" -->
                 {% assign rows = page.content | split: "---" %}
                 {% for row in rows %}
                 {% assign lines = row | split: "\n" %}

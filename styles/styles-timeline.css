@@ -1,124 +1,82 @@
 /* Timeline Table Container */
 .timeline-table {
-    width: 80%;
+    width: 90%;
     margin: 20px auto;
     border-collapse: collapse;
     background-color: #f7f7f7;
-    border-radius: 8px; /* Rounded corners for the table */
-    overflow: hidden; /* Prevent content overflow on rounded edges */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for emphasis */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-/* General Table Styles */
+/* Table Structure */
 .timeline-table table {
     width: 100%;
     border-spacing: 0;
-    border-collapse: collapse;
-    table-layout: fixed; /* Ensure equal column widths */
+    table-layout: fixed;
 }
 
-/* Row Background Colors */
+/* Row Styling */
 .timeline-table .row-light {
     background-color: white;
 }
 .timeline-table .row-dark {
-    background-color: #f9f9f9; /* Slightly darker light grey for contrast */
+    background-color: #f9f9f9;
 }
 
-/* Table Cell Styling */
+/* Cell Styling */
 .timeline-table td {
     vertical-align: top;
-    padding: 20px; /* Increased padding for cleaner spacing */
-    border-right: 1px solid #ddd; /* Vertical column separators */
-    text-align: left; /* Align content to the left for consistency */
-    color: #333; /* Ensure text color is dark and readable */
-    font-size: 1rem; /* Default font size for readability */
-    word-wrap: break-word; /* Prevent text overflow */
-    line-height: 1.6; /* Improve readability */
+    padding: 15px;
+    border-right: 1px solid #ddd;
+    font-size: 1rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+    color: #333;
 }
 
-/* Remove Right Border for Last Column */
-.timeline-table td:last-child {
-    border-right: none;
-}
-
-/* Column Styling */
+/* Special Columns */
 .timeline-table td:nth-child(1) {
-    font-weight: bold; /* Emphasize time periods */
-    text-align: center; /* Center align the timeline time */
-    color: #28a745; /* Highlight time periods in green */
+    text-align: center;
+    font-weight: bold;
+    color: #28a745;
+    border-right: 2px solid #ddd;
 }
 .timeline-table td:nth-child(2) {
-    font-weight: 400; /* Regular weight for descriptions */
-    padding-left: 15px; /* Add padding for better spacing */
+    text-align: left;
+    font-weight: normal;
+    color: #555;
 }
-.timeline-table td:nth-child(3) {
-    font-style: italic; /* Italics for major outcomes */
-    padding-left: 15px; /* Add padding for better spacing */
-    list-style: disc; /* Bullet point style for outcomes */
-}
-
-/* Bullet Point Styling */
-.timeline-table td ul {
+.timeline-table td:nth-child(3) ul {
     margin: 0;
-    padding-left: 20px; /* Standard padding for bullet lists */
+    padding-left: 20px;
+}
+.timeline-table td:nth-child(3) ul li {
     list-style: disc;
+    margin-bottom: 5px;
 }
 
-/* Prevent Misaligned Content and Padding Issues */
-.timeline-table td {
-    box-sizing: border-box; /* Ensures padding and borders do not misconfigure layout */
-}
-
-/* Overall Body Styling */
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f7f7f7;
-    padding: 20px;
-    color: #333; /* Default body text color for contrast */
-    font-family: Arial, sans-serif; /* Default font */
-}
-
-/* Header Style (Timeline Title) */
+/* Header Styling */
 h1 {
-    background-color: #28a745; /* Green for headers */
+    background-color: #28a745;
     color: white;
     padding: 15px;
     border-radius: 8px;
-    margin: 20px 0 20px;
-    width: 80%;
     text-align: center;
+    margin: 20px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Table Borders for Visual Clarity */
-.timeline-table tr {
-    border-bottom: 1px solid #ddd; /* Add horizontal row borders */
-}
-.timeline-table tr:last-child {
-    border-bottom: none; /* Remove border for the last row */
-}
-
-/* Responsive Design: Adjust Table for Smaller Screens */
+/* Responsive Design */
 @media (max-width: 768px) {
     .timeline-table {
         width: 95%;
     }
     .timeline-table td {
         font-size: 0.9rem;
-        padding: 15px;
+        padding: 10px;
     }
     h1 {
         font-size: 1.5rem;
-    }
-    p {
-        font-size: 0.9rem;
-    }
-    .timeline-table td:nth-child(1),
-    .timeline-table td:nth-child(2),
-    .timeline-table td:nth-child(3) {
-        text-align: left; /* Align all columns left for smaller screens */
     }
 }

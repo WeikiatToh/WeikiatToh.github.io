@@ -1,51 +1,99 @@
-/* Timeline Container */
+/* Timeline Table Container */
+.timeline-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #f7f7f7;
+    border-radius: 8px; /* Rounded corners for the table */
+    overflow: hidden; /* Prevent content overflow on rounded edges */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for emphasis */
+}
+
+/* General Table Styles */
+.timeline-table table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+/* Row Background Colors */
+.timeline-table .row-light {
+    background-color: white;
+}
+.timeline-table .row-dark {
+    background-color: #f9f9f9; /* Slightly darker light grey for contrast */
+}
+
+/* Table Cell Styling */
+.timeline-table td {
+    vertical-align: top;
+    padding: 20px; /* Increased padding for cleaner spacing */
+    border-right: 1px solid #ddd; /* Vertical column separators */
+    text-align: left; /* Align content to the left for consistency */
+    color: #333; /* Ensure text color is dark and readable */
+    font-size: 1rem; /* Default font size for readability */
+    word-wrap: break-word; /* Prevent text overflow */
+    line-height: 1.5; /* Improve readability */
+}
+
+/* Remove Right Border for Last Column */
+.timeline-table td:last-child {
+    border-right: none;
+}
+
+/* Column Styling */
+.timeline-table td:nth-child(1) {
+    font-weight: bold; /* Emphasize time periods */
+    text-align: center; /* Center align the timeline time */
+}
+.timeline-table td:nth-child(2) {
+    font-weight: 400; /* Regular weight for descriptions */
+}
+.timeline-table td:nth-child(3) {
+    font-style: italic; /* Italics for major outcomes */
+}
+
+/* Prevent Misaligned Content and Padding Issues */
+.timeline-table td {
+    box-sizing: border-box; /* Ensures padding and borders do not misconfigure layout */
+}
+
+/* Overall Body Styling */
 body {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     background-color: #f7f7f7;
     padding: 20px;
+    color: #333; /* Default body text color for contrast */
+    font-family: Arial, sans-serif; /* Default font */
 }
 
-/* Header Style (Timeline Sections) */
+/* Header Style (Timeline Title) */
 h1 {
     background-color: #28a745; /* Green for headers */
     color: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 20px 0 10px;
-    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0 20px;
+    width: 80%;
     text-align: center;
-}
-
-/* Subheader Style (Timeline Items) */
-h2 {
-    background-color: #17a2b8; /* Blue for subheaders */
-    color: white;
-    padding: 8px;
-    border-radius: 5px;
-    margin: 10px 0;
-    width: auto;
-    text-align: center;
-}
-
-/* Paragraph Style */
-p {
-    background-color: #ffffff;
-    border-left: 4px solid #28a745;
-    padding: 10px;
-    border-radius: 5px;
-    margin-left: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: auto;
 }
 
-/* Optional: Add Lines Between Timeline Items */
-h2::before {
-    content: '';
-    display: block;
-    width: 2px;
-    height: 30px;
-    background-color: #ccc;
-    margin: 0 auto;
+/* Responsive Design: Adjust Table for Smaller Screens */
+@media (max-width: 768px) {
+    .timeline-table {
+        width: 95%;
+    }
+    .timeline-table td {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 0.9rem;
+    }
 }

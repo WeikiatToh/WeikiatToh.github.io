@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
+    <!-- Conditional Timeline Styles -->
+    {% if page.permalink contains "history-of-earth" %}
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles/styles-timeline.css">
+    {% endif %}
+</head>
+<body>
+    <header>
+        <h1>{{ page.title }}</h1>
+    </header>
+    <main class="timeline-table">
+        <table>
+            {% assign rows = page.content | split: '---' %}
+            {% for row in rows %}
+            <tr class="{% cycle 'row-light', 'row-dark' %}">
+                {% assign columns = row | split: '\n' %}
+                <td>
+                    <!-- Time (first line) -->
+                    <strong>{{ columns[0] | strip }}</strong>
+                </td>
+                <td>
+                    <!-- Description (second line) -->
+                    {{ columns[1] | strip }}
+                </td>
+                <td>
+                    <!-- Major Outcome or Bullets (remaining lines) -->
+                    <ul>
+                        {% for item in columns offset:2 %}
+                        {% if item != "" %}
+                        <li>{{ item | strip }}</li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+</body>
+</html>

@@ -17,24 +17,27 @@
     </header>
     <main class="timeline-table">
         <table>
+            <!-- Split sections by "---" as a row separator -->
             {% assign rows = page.content | split: '---' %}
             {% for row in rows %}
             <tr class="{% cycle 'row-light', 'row-dark' %}">
-                {% assign columns = row | split: '\n' %}
                 <td>
-                    <!-- Time (first line) -->
-                    <strong>{{ columns[0] | strip }}</strong>
+                    <!-- Column 1 (Time Periods): First heading in the row -->
+                    {% assign first_heading = row | split: '\n' | first %}
+                    {{ first_heading | strip }}
                 </td>
                 <td>
-                    <!-- Description (second line) -->
-                    {{ columns[1] | strip }}
+                    <!-- Column 2 (Descriptions): Extract descriptions starting with "- Description:" -->
+                    {% assign description_lines = row | split: '- Description:' | last | split: '- Outcome:' | first %}
+                    <p>{{ description_lines | strip }}</p>
                 </td>
                 <td>
-                    <!-- Major Outcome or Bullets (remaining lines) -->
+                    <!-- Column 3 (Bullet Points/Outcomes): Extract outcomes -->
                     <ul>
-                        {% for item in columns offset:2 %}
-                        {% if item != "" %}
-                        <li>{{ item | strip }}</li>
+                        {% assign outcome_lines = row | split: '- Outcome:' | last | split: '\n' %}
+                        {% for line in outcome_lines %}
+                        {% if line contains "- " %}
+                        <li>{{ line | remove: '-' | strip }}</li>
                         {% endif %}
                         {% endfor %}
                     </ul>

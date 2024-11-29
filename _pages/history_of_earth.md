@@ -8,7 +8,7 @@ permalink: /history-of-earth/
 >> - Development of an atmosphere. <<
 >>> The Earth forms from swirling gas and dust, creating a rocky planet with a hot core. <<<
 
-- --- 
+--- 
 > 3.8 - 3.5 Ga < 
 >> - First life forms. 
 >> - Formation of simple ecosystems.

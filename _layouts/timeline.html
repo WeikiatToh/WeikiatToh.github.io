@@ -28,14 +28,22 @@
                 {% if timeline or main_points or description %}
                 <tr class="{% cycle 'row-light', 'row-dark' %}">
                     <!-- Column 1: Timeline -->
-                    <td>{{ timeline | strip }}</td>
+                    <td>{% if timeline contains '<' %}{{ timeline | regex_replace: '(.*?)<.*', '\1' }}{% else %}{{ timeline | strip }}{% endif %}</td>
                     <!-- Column 2: Main Points -->
                     <td>
-                        {{ main_points | strip | newline_to_br }}
+                        {% if main_points contains '<<' %}
+                            {{ main_points | regex_replace: '(.*?)<<.*', '\1' | newline_to_br | strip }}
+                        {% else %}
+                            {{ main_points | strip }}
+                        {% endif %}
                     </td>
                     <!-- Column 3: Description -->
                     <td>
-                        {{ description | strip | newline_to_br }}
+                        {% if description contains '<<<' %}
+                            {{ description | regex_replace: '(.*?)<<<.*', '\1' | newline_to_br | strip }}
+                        {% else %}
+                            {{ description | strip }}
+                        {% endif %}
                     </td>
                 </tr>
                 {% endif %}

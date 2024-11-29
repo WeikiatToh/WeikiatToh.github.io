@@ -22,29 +22,25 @@
             <tbody>
                 {% assign rows = page.content | split: "---" %}
                 {% for row in rows %}
-                {% assign timeline = row | regex_replace: '(?s).*?>(.*?)<.*', '\1' %}
-                {% assign main_points = row | regex_replace: '(?s).*?>>((?:.|\n)*?)<<.*', '\1' %}
-                {% assign description = row | regex_replace: '(?s).*?>>>(.*?)<<<.*', '\1' %}
+                {% assign timeline = row | regex_replace: '(?m)^>\\s*(.*?)\\s*<$', '\1' %}
+                {% assign main_points = row | regex_replace: '(?m)^>>\\s*((?:.|\n)*?)\\s*<<$', '\1' %}
+                {% assign description = row | regex_replace: '(?m)^>>>\\s*((?:.|\n)*?)\\s*<<<$', '\1' %}
                 {% if timeline or main_points or description %}
                 <tr class="{% cycle 'row-light', 'row-dark' %}">
                     <!-- Column 1: Timeline -->
-                    <td>{% if timeline contains '<' %}{{ timeline | regex_replace: '(.*?)<.*', '\1' }}{% else %}{{ timeline | strip }}{% endif %}</td>
+                    <td>{{ timeline | strip }}</td>
                     <!-- Column 2: Main Points -->
                     <td>
-                        {% if main_points contains '<<' %}
-                            {{ main_points | regex_replace: '(.*?)<<.*', '\1' | newline_to_br | strip }}
-                        {% else %}
-                            {{ main_points | strip }}
-                        {% endif %}
+                        <ul>
+                            {% for line in main_points | split: "\n" %}
+                            {% unless line == "" %}
+                            <li>{{ line | strip }}</li>
+                            {% endunless %}
+                            {% endfor %}
+                        </ul>
                     </td>
                     <!-- Column 3: Description -->
-                    <td>
-                        {% if description contains '<<<' %}
-                            {{ description | regex_replace: '(.*?)<<<.*', '\1' | newline_to_br | strip }}
-                        {% else %}
-                            {{ description | strip }}
-                        {% endif %}
-                    </td>
+                    <td>{{ description | strip | newline_to_br }}</td>
                 </tr>
                 {% endif %}
                 {% endfor %}

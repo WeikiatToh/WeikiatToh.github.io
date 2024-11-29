@@ -1,60 +1,47 @@
-/* Timeline Table Container */
 .timeline-table {
     width: 90%;
     margin: 20px auto;
     border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: auto;
     background-color: #f7f7f7;
-    border-radius: 8px;
-    overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Table Structure */
-.timeline-table table {
-    width: 100%;
-    border-spacing: 0;
-    table-layout: auto;
-}
-
-/* Header Styling */
-.timeline-table thead th {
+.timeline-table th {
     background-color: #28a745;
     color: white;
     text-align: center;
     padding: 10px;
-    font-size: 1rem;
     border-bottom: 2px solid #ddd;
 }
 
-/* Row Styling */
-.timeline-table .row-light {
-    background-color: white;
-}
-.timeline-table .row-dark {
-    background-color: #f9f9f9;
-}
-
-/* Cell Styling */
 .timeline-table td {
     padding: 15px;
-    border: 1px solid #ddd;
     text-align: left;
     vertical-align: top;
+    border: 1px solid #ddd;
     word-wrap: break-word;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 1rem;
 }
 
-/* Responsive Design */
+.timeline-table ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.timeline-table ul li {
+    list-style-type: disc;
+    margin-bottom: 5px;
+}
+
 @media (max-width: 768px) {
     .timeline-table {
         width: 100%;
     }
-    .timeline-table td {
-        font-size: 0.85rem;
-        padding: 10px;
-    }
-    .timeline-table thead th {
+
+    .timeline-table th, .timeline-table td {
         font-size: 0.9rem;
+        padding: 10px;
     }
 }

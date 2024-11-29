@@ -26,20 +26,18 @@
                 {% assign main_points = "" %}
                 {% assign description = "" %}
 
-                <!-- Split the row into individual lines -->
                 {% assign lines = row | split: "\n" %}
                 {% for line in lines %}
                     {% assign line_cleaned = line | strip %}
-                    {% if line_cleaned starts_with "1 " %}
+                    {% if line_cleaned | slice: 0, 2 == "1 " %}
                         {% assign timeline = line_cleaned | remove_first: "1 " | strip %}
-                    {% elsif line_cleaned starts_with "2 " %}
+                    {% elsif line_cleaned | slice: 0, 2 == "2 " %}
                         {% assign main_points = main_points | append: line_cleaned | remove_first: "2 " | append: "\n" %}
-                    {% elsif line_cleaned starts_with "3 " %}
+                    {% elsif line_cleaned | slice: 0, 2 == "3 " %}
                         {% assign description = line_cleaned | remove_first: "3 " | strip %}
                     {% endif %}
                 {% endfor %}
 
-                <!-- Only render the row if at least one column is not empty -->
                 {% if timeline or main_points or description %}
                 <tr class="{% cycle 'row-light', 'row-dark' %}">
                     <!-- Timeline Column -->

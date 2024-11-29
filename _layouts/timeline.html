@@ -29,11 +29,11 @@
                 {% assign lines = row | split: "\n" %}
                 {% for line in lines %}
                     {% assign trimmed_line = line | strip %}
-                    {% if trimmed_line starts_with "1 " %}
+                    {% if trimmed_line | slice: 0, 2 == "1 " %}
                         {% assign timeline = trimmed_line | remove_first: "1 " | strip %}
-                    {% elsif trimmed_line starts_with "2 " %}
+                    {% elsif trimmed_line | slice: 0, 2 == "2 " %}
                         {% assign main_points = main_points | append: trimmed_line | remove_first: "2 " | append: "\n" %}
-                    {% elsif trimmed_line starts_with "3 " %}
+                    {% elsif trimmed_line | slice: 0, 2 == "3 " %}
                         {% assign description = trimmed_line | remove_first: "3 " | strip %}
                     {% endif %}
                 {% endfor %}

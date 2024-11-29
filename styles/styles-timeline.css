@@ -13,7 +13,7 @@
 .timeline-table table {
     width: 100%;
     border-spacing: 0;
-    table-layout: auto; /* Adjust column width automatically */
+    table-layout: auto;
 }
 
 /* Header Styling */

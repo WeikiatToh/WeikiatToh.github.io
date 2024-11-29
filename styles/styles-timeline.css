@@ -1,12 +1,12 @@
 /* Timeline Table Container */
 .timeline-table {
-    width: 90%;
+    width: 80%;
     margin: 20px auto;
     border-collapse: collapse;
     background-color: #f7f7f7;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Table Structure */
@@ -31,16 +31,15 @@
     border-right: 1px solid #ddd;
     font-size: 1rem;
     line-height: 1.5;
-    word-wrap: break-word;
     color: #333;
+    word-wrap: break-word;
 }
 
-/* Special Columns */
+/* Column Styling */
 .timeline-table td:nth-child(1) {
-    text-align: center;
-    font-weight: bold;
+    font-weight: bold; /* Emphasize time */
+    text-align: center; /* Center-align time */
     color: #28a745;
-    border-right: 2px solid #ddd;
 }
 .timeline-table td:nth-child(2) {
     text-align: left;
@@ -54,6 +53,11 @@
 .timeline-table td:nth-child(3) ul li {
     list-style: disc;
     margin-bottom: 5px;
+}
+
+/* Remove Right Border for Last Column */
+.timeline-table td:last-child {
+    border-right: none;
 }
 
 /* Header Styling */

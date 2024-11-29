@@ -45,16 +45,6 @@
     line-height: 1.5;
 }
 
-/* Unordered List Styling in Main Points */
-.timeline-table td ul {
-    margin: 0;
-    padding-left: 20px;
-}
-.timeline-table td ul li {
-    list-style: disc;
-    margin-bottom: 5px;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .timeline-table {

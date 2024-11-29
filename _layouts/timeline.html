@@ -22,30 +22,34 @@
             <tbody>
                 {% assign rows = page.content | split: "---" %}
                 {% for row in rows %}
-                {% assign timeline = row | regex_replace: '(?ms).*?>\\s*(.*?)\\s*<.*', '\1' %}
-                {% assign main_points = row | regex_replace: '(?ms).*?>>\\s*((?:.|\n)*?)\\s*<<.*', '\1' %}
-                {% assign description = row | regex_replace: '(?ms).*?>>>(.*?)<<<.*', '\1' %}
+                {% capture timeline %}
+                    {{ row | regex_replace: '(?ms)^>\\s*(.*?)\\s*<.*', '\1' | strip }}
+                {% endcapture %}
+                {% capture main_points %}
+                    {{ row | regex_replace: '(?ms)^>>\\s*((?:.|\n)*?)\\s*<<.*', '\1' | strip }}
+                {% endcapture %}
+                {% capture description %}
+                    {{ row | regex_replace: '(?ms)^>>>\\s*(.*?)\\s*<<<.*', '\1' | strip }}
+                {% endcapture %}
+
                 {% if timeline or main_points or description %}
                 <tr class="{% cycle 'row-light', 'row-dark' %}">
                     <!-- Column 1: Timeline -->
-                    <td>
-                        {{ timeline | strip }}
-                    </td>
+                    <td>{{ timeline | strip }}</td>
+                    
                     <!-- Column 2: Main Points -->
                     <td>
                         <ul>
-                            {% assign points = main_points | split: '\n' %}
-                            {% for point in points %}
+                            {% for point in main_points | split: '\n' %}
                             {% unless point == "" %}
                             <li>{{ point | strip }}</li>
                             {% endunless %}
                             {% endfor %}
                         </ul>
                     </td>
+                    
                     <!-- Column 3: Description -->
-                    <td>
-                        {{ description | strip | newline_to_br }}
-                    </td>
+                    <td>{{ description | newline_to_br }}</td>
                 </tr>
                 {% endif %}
                 {% endfor %}

@@ -1,47 +1,61 @@
+/* Timeline Table Container */
 .timeline-table {
-    width: 90%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    border-spacing: 0;
-    table-layout: auto;
-    background-color: #f7f7f7;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Ensure the table takes up most of the width but remains centered */
+    margin: 20px auto; /* Center the table and add vertical spacing */
+    border-collapse: collapse; /* Merge borders for cleaner lines */
+    border-spacing: 0; /* Remove additional spacing between table cells */
+    table-layout: auto; /* Allow the table to automatically adjust column width */
+    background-color: #f7f7f7; /* Light background for the table */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+/* Table Header Styling */
 .timeline-table th {
-    background-color: #28a745;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    border-bottom: 2px solid #ddd;
+    background-color: #28a745; /* Green background for the header */
+    color: white; /* White text for contrast */
+    text-align: center; /* Center the header text */
+    padding: 10px; /* Add padding inside header cells */
+    font-size: 1rem; /* Standard font size for the header */
+    border-bottom: 2px solid #ddd; /* Light border to separate header from rows */
 }
 
+/* Table Cell Styling */
 .timeline-table td {
-    padding: 15px;
-    text-align: left;
-    vertical-align: top;
-    border: 1px solid #ddd;
-    word-wrap: break-word;
-    font-size: 1rem;
+    padding: 15px; /* Spacing inside each cell */
+    text-align: left; /* Align text to the left */
+    vertical-align: top; /* Align content to the top of the cell */
+    border: 1px solid #ddd; /* Light border for each cell */
+    word-wrap: break-word; /* Ensure long text breaks into the next line */
+    font-size: 1rem; /* Standard font size */
+    background-color: white; /* Ensure table cells have a consistent white background */
 }
 
+/* Alternating Row Colors */
+.timeline-table tr:nth-child(even) td {
+    background-color: #f9f9f9; /* Light gray background for even rows */
+}
+.timeline-table tr:nth-child(odd) td {
+    background-color: white; /* White background for odd rows */
+}
+
+/* Unordered List Styling for Main Points */
 .timeline-table ul {
-    padding-left: 20px;
-    margin: 0;
+    padding-left: 20px; /* Indent bullet points */
+    margin: 0; /* Remove default margin */
 }
-
 .timeline-table ul li {
-    list-style-type: disc;
-    margin-bottom: 5px;
+    list-style-type: disc; /* Use disc bullets */
+    margin-bottom: 5px; /* Add spacing between bullets */
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
     .timeline-table {
-        width: 100%;
+        width: 100%; /* Full width on smaller screens */
     }
 
     .timeline-table th, .timeline-table td {
-        font-size: 0.9rem;
-        padding: 10px;
+        font-size: 0.9rem; /* Slightly smaller text size */
+        padding: 10px; /* Reduce padding for smaller screens */
     }
 }

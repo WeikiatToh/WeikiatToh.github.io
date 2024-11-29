@@ -17,20 +17,20 @@
     </header>
     <main class="timeline-table">
         <table>
-            <!-- Iterate through timeline entries -->
+            <!-- Split the page content into sections by "---" -->
             {% assign rows = page.content | split: "---" %}
             {% for row in rows %}
+            {% assign lines = row | split: "\n" %}
             <tr class="{% cycle 'row-light', 'row-dark' %}">
-                <td>
-                    <strong>{{ row | split: "\n" | first | strip }}</strong>
-                </td>
-                <td>
-                    {{ row | split: "\n" | last | strip }}
-                </td>
+                <!-- Column 1: Time -->
+                <td><strong>{{ lines[0] | strip }}</strong></td>
+                <!-- Column 2: Description -->
+                <td>{{ lines[1] | strip }}</td>
+                <!-- Column 3: Main Points -->
                 <td>
                     <ul>
-                        {% for bullet in row | split: "\n" | slice: 1, 999 %}
-                        {% unless bullet contains "---" %}
+                        {% for bullet in lines offset:2 %}
+                        {% unless bullet == "" %}
                         <li>{{ bullet | strip }}</li>
                         {% endunless %}
                         {% endfor %}

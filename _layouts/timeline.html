@@ -17,28 +17,22 @@
     </header>
     <main class="timeline-table">
         <table>
-            <!-- Split sections by "---" as a row separator -->
-            {% assign rows = page.content | split: '---' %}
+            <!-- Iterate through timeline entries -->
+            {% assign rows = page.content | split: "---" %}
             {% for row in rows %}
             <tr class="{% cycle 'row-light', 'row-dark' %}">
                 <td>
-                    <!-- Column 1 (Time Periods): First heading in the row -->
-                    {% assign first_heading = row | split: '\n' | first %}
-                    {{ first_heading | strip }}
+                    <strong>{{ row | split: "\n" | first | strip }}</strong>
                 </td>
                 <td>
-                    <!-- Column 2 (Descriptions): Extract descriptions starting with "- Description:" -->
-                    {% assign description_lines = row | split: '- Description:' | last | split: '- Outcome:' | first %}
-                    <p>{{ description_lines | strip }}</p>
+                    {{ row | split: "\n" | last | strip }}
                 </td>
                 <td>
-                    <!-- Column 3 (Bullet Points/Outcomes): Extract outcomes -->
                     <ul>
-                        {% assign outcome_lines = row | split: '- Outcome:' | last | split: '\n' %}
-                        {% for line in outcome_lines %}
-                        {% if line contains "- " %}
-                        <li>{{ line | remove: '-' | strip }}</li>
-                        {% endif %}
+                        {% for bullet in row | split: "\n" | slice: 1, 999 %}
+                        {% unless bullet contains "---" %}
+                        <li>{{ bullet | strip }}</li>
+                        {% endunless %}
                         {% endfor %}
                     </ul>
                 </td>

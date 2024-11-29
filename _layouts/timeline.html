@@ -6,10 +6,6 @@
     <title>{{ page.title }}</title>
     <!-- Main Styles -->
     <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
-    <!-- Conditional Timeline Styles -->
-    {% if page.permalink contains "history-of-earth" %}
-    <link rel="stylesheet" href="{{ site.baseurl }}/styles/styles-timeline.css">
-    {% endif %}
 </head>
 <body>
     <header>
@@ -19,25 +15,37 @@
         <table>
             <!-- Split the page content into sections by "---" -->
             {% assign rows = page.content | split: "---" %}
-            {% for row in rows %}
-            {% assign lines = row | split: "\n" %}
-            <tr class="{% cycle 'row-light', 'row-dark' %}">
-                <!-- Column 1: Time -->
-                <td><strong>{{ lines[0] | strip }}</strong></td>
-                <!-- Column 2: Description -->
-                <td>{{ lines[1] | strip }}</td>
-                <!-- Column 3: Main Points -->
-                <td>
-                    <ul>
-                        {% for bullet in lines offset:2 %}
-                        {% unless bullet == "" %}
-                        <li>{{ bullet | strip }}</li>
-                        {% endunless %}
-                        {% endfor %}
-                    </ul>
-                </td>
-            </tr>
-            {% endfor %}
+            <thead>
+                <tr>
+                    <th>Timeline</th>
+                    <th>Main Points</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                {% assign lines = row | split: "\n" %}
+                <tr class="{% cycle 'row-light', 'row-dark' %}">
+                    <!-- Column 1: Timeline -->
+                    <td>{{ lines[0] | strip }}</td>
+                    <!-- Column 2: Main Points -->
+                    <td>
+                        <ul>
+                            {% for bullet in lines offset: 1 %}
+                            {% unless forloop.last or bullet contains "Description:" %}
+                            <li>{{ bullet | strip }}</li>
+                            {% endunless %}
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <!-- Column 3: Description -->
+                    <td>
+                        {% assign description = lines | last | remove: "Description:" %}
+                        {{ description | strip }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
     </main>
 </body>

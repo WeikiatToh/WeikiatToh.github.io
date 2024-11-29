@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
-    <!-- Main Styles -->
     <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
 </head>
 <body>
@@ -13,8 +12,6 @@
     </header>
     <main class="timeline-table">
         <table>
-            <!-- Split the page content into sections by "---" -->
-            {% assign rows = page.content | split: "---" %}
             <thead>
                 <tr>
                     <th>Timeline</th>
@@ -23,26 +20,27 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- Split content into rows by "---" -->
+                {% assign rows = page.content | split: "---" %}
                 {% for row in rows %}
                 {% assign lines = row | split: "\n" %}
+                {% assign timeline = lines[0] | strip %}
+                {% assign description = lines | last | remove: "Description:" | strip %}
                 <tr class="{% cycle 'row-light', 'row-dark' %}">
                     <!-- Column 1: Timeline -->
-                    <td>{{ lines[0] | strip }}</td>
+                    <td>{{ timeline }}</td>
                     <!-- Column 2: Main Points -->
                     <td>
                         <ul>
-                            {% for bullet in lines offset: 1 %}
-                            {% unless forloop.last or bullet contains "Description:" %}
+                            {% for bullet in lines offset:1 %}
+                            {% unless bullet contains "Description:" or bullet == "" %}
                             <li>{{ bullet | strip }}</li>
                             {% endunless %}
                             {% endfor %}
                         </ul>
                     </td>
                     <!-- Column 3: Description -->
-                    <td>
-                        {% assign description = lines | last | remove: "Description:" %}
-                        {{ description | strip }}
-                    </td>
+                    <td>{{ description }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

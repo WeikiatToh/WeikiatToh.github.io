@@ -28,22 +28,19 @@
 
                 {% assign lines = row | split: "\n" %}
                 {% for line in lines %}
-                    {% assign line_cleaned = line | strip %}
-                    {% if line_cleaned | slice: 0, 2 == "1 " %}
-                        {% assign timeline = line_cleaned | remove_first: "1 " | strip %}
-                    {% elsif line_cleaned | slice: 0, 2 == "2 " %}
-                        {% assign main_points = main_points | append: line_cleaned | remove_first: "2 " | append: "\n" %}
-                    {% elsif line_cleaned | slice: 0, 2 == "3 " %}
-                        {% assign description = line_cleaned | remove_first: "3 " | strip %}
+                    {% assign trimmed_line = line | strip %}
+                    {% if trimmed_line starts_with "1 " %}
+                        {% assign timeline = trimmed_line | remove_first: "1 " | strip %}
+                    {% elsif trimmed_line starts_with "2 " %}
+                        {% assign main_points = main_points | append: trimmed_line | remove_first: "2 " | append: "\n" %}
+                    {% elsif trimmed_line starts_with "3 " %}
+                        {% assign description = trimmed_line | remove_first: "3 " | strip %}
                     {% endif %}
                 {% endfor %}
 
                 {% if timeline or main_points or description %}
-                <tr class="{% cycle 'row-light', 'row-dark' %}">
-                    <!-- Timeline Column -->
+                <tr>
                     <td>{{ timeline }}</td>
-
-                    <!-- Main Points Column -->
                     <td>
                         <ul>
                             {% assign points = main_points | split: "\n" %}
@@ -54,8 +51,6 @@
                             {% endfor %}
                         </ul>
                     </td>
-
-                    <!-- Description Column -->
                     <td>{{ description | newline_to_br }}</td>
                 </tr>
                 {% endif %}

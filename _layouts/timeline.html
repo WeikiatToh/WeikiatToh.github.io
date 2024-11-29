@@ -22,25 +22,23 @@
             <tbody>
                 {% assign rows = page.content | split: "---" %}
                 {% for row in rows %}
-                {% assign lines = row | split: "\n" %}
-                {% assign timeline = lines[0] | strip %}
-                {% assign description = lines | last | remove: "Description:" | strip %}
+                {% assign timeline = row | regex_replace: '(?s).*?>(.*?)<.*', '\1' %}
+                {% assign main_points = row | regex_replace: '(?s).*?>>((?:.|\n)*?)<<.*', '\1' %}
+                {% assign description = row | regex_replace: '(?s).*?>>>(.*?)<<<.*', '\1' %}
+                {% if timeline or main_points or description %}
                 <tr class="{% cycle 'row-light', 'row-dark' %}">
                     <!-- Column 1: Timeline -->
-                    <td>{{ timeline }}</td>
+                    <td>{{ timeline | strip }}</td>
                     <!-- Column 2: Main Points -->
                     <td>
-                        <ul>
-                            {% for bullet in lines offset:1 %}
-                            {% unless bullet contains "Description:" or bullet == "" %}
-                            <li>{{ bullet | strip }}</li>
-                            {% endunless %}
-                            {% endfor %}
-                        </ul>
+                        {{ main_points | strip | newline_to_br }}
                     </td>
                     <!-- Column 3: Description -->
-                    <td>{{ description }}</td>
+                    <td>
+                        {{ description | strip | newline_to_br }}
+                    </td>
                 </tr>
+                {% endif %}
                 {% endfor %}
             </tbody>
         </table>
